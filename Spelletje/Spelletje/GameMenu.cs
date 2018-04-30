@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
-using System.Linq.Expressions;
 
 namespace Spelletje
 {
@@ -30,7 +28,7 @@ namespace Spelletje
             {
                 foreach (string option in _options)
                 {
-                    if (option != _options[2] || option != _options[3])
+                    if (option != _options[2] && option != _options[3])
                     {
                         _screenText += $"{option} \n";
                     }          
