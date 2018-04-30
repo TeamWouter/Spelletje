@@ -17,9 +17,15 @@ namespace Spelletje
         {
             _menu.OpenMenu(_running);
             string SavePath = _menu.Done();
+            if (SavePath != string.Empty)
+                _running = true;
+
 
             while (_running)
             {
+                //Console.Clear();
+
+
                 Console.Read();
             }
         }
