@@ -160,12 +160,6 @@ namespace Spelletje
             return false;
         }
 
-
-        public string LoadFile()
-        {
-            return String.Empty;
-        }
-
         public bool SaveFile()
         {
             return true;
