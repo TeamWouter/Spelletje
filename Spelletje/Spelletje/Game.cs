@@ -67,7 +67,7 @@ namespace Spelletje
         {
             foreach (var key in _actions.Keys)
             {
-                if (input.Contains(key))
+                if (input.ToLower().Contains(key.ToLower()))
                 {
                     return _actions[key];
                 }
@@ -126,45 +126,21 @@ namespace Spelletje
         {
             //South West == 0.0
             _rooms = new List<Room>();
-
-            Room room = new Room("Spawn", new Point(1, 0));
-            room._commands.Add(1);
-            _rooms.Add(room);
+            CreateRoom("Spawn", new Point(1, 0), new []{1});
 
             //
-            room = new Room("Monster|Key", new Point(0, 1));
-            room._commands.Add(1);
-            room._commands.Add(2);
-            _rooms.Add(room);
+            CreateRoom("Monster|Key", new Point(0, 1), new []{1 , 2});
 
-            room = new Room("SaveRoom", new Point(1, 1));
-            room._commands.Add(1);
-            room._commands.Add(2);
-            room._commands.Add(3);
-            room._commands.Add(4);
-            _rooms.Add(room);
+            CreateRoom("SaveRoom", new Point(1, 1), new []{1, 2, 3, 4});
 
-            room = new Room("PitTrap", new Point(2, 1));
-            room._commands.Add(1);
-            room._commands.Add(3);
-            _rooms.Add(room);
+            CreateRoom("PitTrap", new Point(2, 1), new []{1, 4});
 
             //
-            room = new Room("Loot", new Point(0, 2));
-            room._commands.Add(3);
-            room._commands.Add(2);
-            _rooms.Add(room);
+            CreateRoom("Loot", new Point(0, 2), new []{3, 2});
 
-            room = new Room("NPC", new Point(1, 2));
-            room._commands.Add(3);
-            room._commands.Add(2);
-            room._commands.Add(4);
-            _rooms.Add(room);
+            CreateRoom("NPC", new Point(1, 2), new []{2, 3, 4});
 
-            room = new Room("Table|Item", new Point(2, 2));
-            room._commands.Add(3);
-            room._commands.Add(4);
-            _rooms.Add(room);
+            CreateRoom("Table|Item", new Point(2, 2), new []{3, 4});
         }
 
         private void FillActions()
@@ -178,6 +154,12 @@ namespace Spelletje
             _actions.Add("East", 2);
             _actions.Add("South", 3);
             _actions.Add("West", 4);
+
+            _actions.Add("N", 1);
+            _actions.Add("E", 2);
+            _actions.Add("S", 3);
+            _actions.Add("W", 4);
+
 
             //Basic Actions
             _actions.Add("Open", 5);
@@ -195,6 +177,17 @@ namespace Spelletje
             }
 
             return null;
+        }
+
+        private void CreateRoom(string info, Point point, int[] commands)
+        {
+            Room room = new Room(info, point);
+            foreach (int i in commands)
+            {
+                room._commands.Add(i);
+            }
+            _rooms.Add(room);
+
         }
     }
 }
