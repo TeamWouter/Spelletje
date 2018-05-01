@@ -124,23 +124,91 @@ namespace Spelletje
 
         private void BuildMap()
         {
-            //South West == 0.0
+            //North West == 0.0
             _rooms = new List<Room>();
-            CreateRoom("Spawn", new Point(1, 0), new []{1});
 
-            //
-            CreateRoom("Monster|Key", new Point(0, 1), new []{1 , 2});
+            //Y = 0
+            CreateRoom("Old Windmill", "", new Point(0, 0), new[] { 2, 3});
+            CreateRoom("Riverside", "", new Point(1, 0), new[] { 2, 4});
+            CreateRoom("Graveyard", "", new Point(2, 0), new[] { 3, 4});
+            CreateRoom("", "", new Point(3, 0), new[] { 2});
+            CreateRoom("", "", new Point(4, 0), new[] { 2, 4});
+            CreateRoom("", "", new Point(5, 0), new[] { 2, 4});
+            CreateRoom("", "", new Point(6, 0), new[] { 2, 4});
+            CreateRoom("", "", new Point(7, 0), new[] { 2, 4});
+            CreateRoom("", "", new Point(8, 0), new[] { 3, 4});
 
-            CreateRoom("SaveRoom", new Point(1, 1), new []{1, 2, 3, 4});
+            CreateRoom("", "", new Point(0, 1), new[] { 1, 3});
+            CreateRoom("Home", "", new Point(1, 1), new[] { 3});
+            CreateRoom("", "", new Point(2, 1), new[] { 1, 2});
+            CreateRoom("", "", new Point(3, 1), new[] { 3, 4});
+            CreateRoom("", "", new Point(4, 1), new[] { 2, 3});
+            CreateRoom("", "", new Point(5, 1), new[] { 4});
+            CreateRoom("", "", new Point(6, 1), new[] { 2});
+            CreateRoom("", "", new Point(7, 1), new[] { 3, 4});
+            CreateRoom("", "", new Point(8, 1), new[] { 1, 3});
 
-            CreateRoom("PitTrap", new Point(2, 1), new []{1, 4});
+            CreateRoom("", "", new Point(0, 2), new[] { 1, 3});
+            CreateRoom("", "", new Point(1, 2), new[] { 1, 2, 3});
+            CreateRoom("", "", new Point(2, 2), new[] { 2, 4});
+            CreateRoom("", "", new Point(3, 2), new[] { 1, 2, 3});
+            CreateRoom("", "", new Point(4, 2), new[] { 1, 2, 3, 4});
+            CreateRoom("", "", new Point(5, 2), new[] { 2, 4});
+            CreateRoom("", "", new Point(6, 2), new[] { 2, 3, 4});
+            CreateRoom("", "", new Point(7, 2), new[] { 1, 2, 4});
+            CreateRoom("", "", new Point(8, 2), new[] { 1, 3, 4});
 
-            //
-            CreateRoom("Loot", new Point(0, 2), new []{3, 2});
+            CreateRoom("", "", new Point(0, 3), new[] { 1, 2});
+            CreateRoom("", "", new Point(1, 3), new[] { 1, 4});
+            CreateRoom("", "", new Point(2, 3), new[] { 3});
+            CreateRoom("", "", new Point(3, 3), new[] { 3});
+            CreateRoom("", "", new Point(4, 3), new[] { 1, 3});
+            CreateRoom("", "", new Point(5, 3), new[] { 3});
+            CreateRoom("", "", new Point(6, 3), new[] { 1, 3});
+            CreateRoom("", "", new Point(7, 3), new[] { 3});
+            CreateRoom("", "", new Point(8, 3), new[] { 1, 2, 3});
+            CreateRoom("", "", new Point(9, 3), new[] { 4});
 
-            CreateRoom("NPC", new Point(1, 2), new []{2, 3, 4});
+            CreateRoom("", "", new Point(0, 4), new[] { 2});
+            CreateRoom("", "", new Point(1, 4), new[] { 2, 4});
+            CreateRoom("", "", new Point(2, 4), new[] { 1, 2, 3, 4});
+            CreateRoom("", "", new Point(3, 4), new[] { 1, 2, 3, 4});
+            CreateRoom("", "", new Point(4, 4), new[] { 1, 3, 4});
+            CreateRoom("", "", new Point(5, 4), new[] { 1, 2});
+            CreateRoom("", "", new Point(6, 4), new[] { 1, 2, 3, 4});
+            CreateRoom("", "", new Point(7, 4), new[] { 1, 4});
+            CreateRoom("", "", new Point(8, 4), new[] { 1, 3});
 
-            CreateRoom("Table|Item", new Point(2, 2), new []{3, 4});
+
+            CreateRoom("", "", new Point(2, 5), new[] { 1});
+            CreateRoom("", "", new Point(3, 5), new[] { 1});
+            CreateRoom("", "", new Point(4, 5), new[] { 1});
+            CreateRoom("", "", new Point(6, 5), new[] { 1, 3});
+            CreateRoom("", "", new Point(7, 5), new[] { 2});
+            CreateRoom("", "", new Point(8, 5), new[] { 1, 4});
+
+            CreateRoom("", "", new Point(6, 6), new[] { 2, 3});
+            CreateRoom("", "", new Point(7, 6), new[] { 2, 3});
+            CreateRoom("", "", new Point(8, 6), new[] { 2, 3});
+
+            CreateRoom("", "", new Point(5, 7), new[] { 2, 3});
+            CreateRoom("", "", new Point(6, 7), new[] { 2, 3});
+            CreateRoom("", "", new Point(8, 7), new[] { 2, 3});
+            CreateRoom("", "", new Point(10, 7), new[] { 1, 3});
+
+            CreateRoom("", "", new Point(5, 8), new[] { 2, 3});
+            CreateRoom("", "", new Point(6, 8), new[] { 2, 3});
+            CreateRoom("", "", new Point(7, 8), new[] { 2, 3});
+            CreateRoom("", "", new Point(8, 8), new[] { 2, 3});
+            CreateRoom("", "", new Point(10, 8), new[] { 1, 3});
+
+            CreateRoom("", "", new Point(7, 9), new[] { 2, 3});
+            CreateRoom("", "", new Point(8, 9), new[] { 2, 3});
+            CreateRoom("", "", new Point(9, 9), new[] { 2, 3});
+            CreateRoom("", "", new Point(10, 9), new[] { 1, 3, 4});
+
+            CreateRoom("", "", new Point(10, 10), new[] { 1});
+
         }
 
         private void FillActions()
@@ -166,6 +234,7 @@ namespace Spelletje
             _actions.Add("Close", 6);
             _actions.Add("Talk to", 7);
             _actions.Add("Examine", 8);
+            _actions.Add("Look", 9);
         }
 
         private Room GetRoomByIndex(Point pos)
@@ -179,9 +248,9 @@ namespace Spelletje
             return null;
         }
 
-        private void CreateRoom(string info, Point point, int[] commands)
+        private void CreateRoom(string name, string info, Point point, int[] commands)
         {
-            Room room = new Room(info, point);
+            Room room = new Room(name, info, point);
             foreach (int i in commands)
             {
                 room._commands.Add(i);
