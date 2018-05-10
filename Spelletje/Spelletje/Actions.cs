@@ -6,11 +6,13 @@ namespace Spelletje
     {
         public Dictionary<string, int> _actions { get; set; }
         public Dictionary<string, int> _chatActions { get; set; }
+        public Dictionary<string, int> _menuActions { get; set; }
 
         public Actions()
         {
             FillActions();
             FillChatActions();
+            FillMenuActions();
         }
 
         private void FillActions()
@@ -48,6 +50,17 @@ namespace Spelletje
             _chatActions.Add("2", 2);
             _chatActions.Add("3", 3);
             _chatActions.Add("4", 4);
+        }
+
+        private void FillMenuActions()
+        {
+            _menuActions = new Dictionary<string, int>();
+
+            _menuActions.Add("New Game", 0);
+            _menuActions.Add("Load Game", 1);
+            _menuActions.Add("Save Game", 2);
+            _menuActions.Add("Close Menu", 3);
+            
         }
     }
 }

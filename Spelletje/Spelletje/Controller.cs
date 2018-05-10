@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 
 namespace Spelletje
@@ -37,6 +39,33 @@ namespace Spelletje
             }
 
             return -1;
+        }
+
+        private int CheckMenuInput(string input, bool isRunning)
+        {
+            if (isRunning)
+            {
+                foreach (var key in _actions._menuActions.Keys)
+                {
+                    if (input.ToLower().Contains(key.ToLower()))
+                    {
+                        return _actions._menuActions[key];
+                    }
+                }
+            }
+            else
+            {
+                foreach (var key in _actions._menuActions.Keys)
+                {
+                    if (input.ToLower().Contains(key.ToLower()) && input.ToLower() != "save game" && input.ToLower() != "close menu")
+                    {
+                        return _actions._menuActions[key];
+                    }
+                }
+            }
+
+            return -1;
+
         }
 
         public bool DoInput(string input, Map.Map map, ChatSystem chatSystem)
@@ -122,5 +151,38 @@ namespace Spelletje
             }
             return false;
         }
+
+        public bool MenuInput(string input, GameMenu gameMenu, bool isRunning)
+        {
+            int actionIndex = CheckMenuInput(input, isRunning);
+
+            if (actionIndex >= 0)
+            {
+                switch (actionIndex)
+                {
+                    //New Game
+                    case 0:
+                        return gameMenu.NewGame();
+
+                    //Load Game
+                    case 1:
+                        return gameMenu.LoadFile();
+                    //Save Game
+                    case 2:
+ 
+                    //Close Menu
+                    case 3:
+                        break;
+
+                }
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
+
 }

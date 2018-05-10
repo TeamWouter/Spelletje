@@ -26,19 +26,34 @@ namespace Spelletje
             _controller = new Controller();
             _map = new Map.Map();
             _chatSystem = new ChatSystem();
-            RunGame();
+            StartMenu();
         }
+
+        public void StartMenu()
+        {
+            Console.WriteLine(_menu.UpdateText(_running));
+            string input = Console.ReadLine();
+            if (!_controller.MenuInput(input, _menu, _running))
+            {
+                _commandFailed = true;
+            }
+            else
+            {
+                _running = true;
+                _map.BuildMap();
+                RunGame();
+            }
+
+
+
+
+        }
+
+
+
 
         public void RunGame()
         {
-            _menu.OpenMenu(_running);
-            string savePath = _menu.Done();
-
-            if (savePath != string.Empty)
-                _running = true;
-            _map.BuildMap();
-
-
             //Focred new game
             _map.CurrentRoom = _map.GetRoomByIndex(new Point(0, 0));
             
