@@ -101,7 +101,7 @@ namespace Spelletje
 
                     input = Console.ReadLine();
 
-                    if (IsDigitsOnly(input))
+                    if (IsDigitsOnly(input) && input != string.Empty)
                     {
                         int fileIndex = Int32.Parse(input) - 1;
 
