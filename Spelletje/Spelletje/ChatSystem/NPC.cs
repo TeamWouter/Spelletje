@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace Spelletje
 {
@@ -14,7 +15,7 @@ namespace Spelletje
         public string Name { get; set; }
         public string History { get; set; }
         private readonly List<Sentance> _sentances;
-        public Sentance CurrrentSentance { get; set; }
+        public Sentance CurrentSentance { get; set; }
 
         public NPC(string name)
         {
@@ -23,7 +24,7 @@ namespace Spelletje
             LoadChat();
             
             History = "1";
-            CurrrentSentance = GetSentanceByIndex(History);
+            CurrentSentance = GetSentanceByIndex(History);
         }
 
         private void LoadChat()
@@ -43,20 +44,37 @@ namespace Spelletje
                         check = str.Substring(2);
                     }
 
+                    //Sentance
                     string[] bits = check.Split('|');
 
                     if (bits[0] != String.Empty && bits[1] != String.Empty && bits[2] != String.Empty &&
-                        bits[3] != String.Empty)
+                        bits[3] != String.Empty && bits[0].Split(' ').First() != "//")
                     {
-                        Dictionary<string, string> choices = new Dictionary<string, string>();
+                        Dictionary<string, string> actions = new Dictionary<string, string>();
+                        if (bits[1] != "!")
+                        {
+                            foreach (string bit in bits[1].Split(','))
+                            {
+                                string[] action = bit.Split('>');
+                                actions.Add(action[1], action[0]);
+                            }
+                        }
+                        else
+                        {
+                            actions.Add("!", "!");
+                        }
 
+
+                        Dictionary<string, string> choices = new Dictionary<string, string>();
                         foreach (string bit in bits[3].Split('<'))
                         {
                             string[] choice = bit.Split('>');
                             choices.Add(choice[1], choice[0]);
                         }
 
-                        Sentance sentance = new Sentance(bits[0], bits[1].Split(','), bits[2], choices);
+
+
+                        Sentance sentance = new Sentance(bits[0], actions, bits[2], choices);
                         _sentances.Add(sentance);
                     }                    
                 }

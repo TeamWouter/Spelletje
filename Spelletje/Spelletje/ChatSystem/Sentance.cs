@@ -5,14 +5,14 @@ namespace Spelletje
     public class Sentance
     {
         public string _index;
-        public string[] _keys;
+        public Dictionary<string, string> _action;
         public string _info;
         public Dictionary<string, string> _choices;
 
-        public Sentance(string index, string[] keys, string info, Dictionary<string, string> choices)
+        public Sentance(string index, Dictionary<string, string> action, string info, Dictionary<string, string> choices)
         {
             this._index = index;
-            this._keys = keys;
+            this._action = action;
             this._info = info;
             this._choices = choices;
         }

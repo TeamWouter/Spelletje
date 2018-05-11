@@ -61,13 +61,29 @@ namespace Spelletje.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 1|Keys|Hello Stranger, what is your name?|1: Hello, my name is test.&gt;1.1&lt;2: Bye&gt;1.2#
-        ///1.1|Keys|Nice meeting you Bart, i currently am a bit busy.|4: Exit&gt;close#
-        ///1.2|Keys|Goodbye|4: Exit&gt;close#.
+        ///   Looks up a localized string similar to 1|!|Hello Stranger, what is your name?|1: Hello, my name is test.&gt;1.1&lt;2: Bye&gt;1.2#
+        ///1.1|!|Nice meeting you test, i currently am a bit busy.|4: Exit&gt;close#
+        ///1.2|!|Goodbye|4: Exit&gt;close#.
         /// </summary>
         internal static string Bart {
             get {
                 return ResourceManager.GetString("Bart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1|!|Mainframe is booting, please stand by.|1: ENTER&gt;1,1#
+        ///1.1|!|.................\n3.. 2.. 1..|1: ENTER&gt;1.2#
+        ///1.2|!|Welcome User.\nNetwork Connection: Dissconnected!|1: Reconnect&gt;1.3&lt;2: Local protocol&gt;2.1&lt;3: Restart mainframe&gt;1.4#
+        ///1.3|!|Retrying connection, please stand by.|1: ENTER&gt;1.2#
+        ///1.4|!|Restarting mainframe, please stand by.|1: ENTER&gt;1#
+        ///
+        ///2.1|!|List of protocols:\nRepopulation\nSystem test\nMainframe overwrite|1: Repopulation&gt;3.1&lt;2: System Test&gt;2.2&lt;3: Mainframe overwrite&gt;2.3#
+        ///2.2|!|System test cu [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Prologue {
+            get {
+                return ResourceManager.GetString("Prologue", resourceCulture);
             }
         }
     }

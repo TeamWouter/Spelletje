@@ -43,12 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Actions.cs" />
     <Compile Include="ChatSystem\Sentance.cs" />
     <Compile Include="ChatSystem\NPC.cs" />
     <Compile Include="ChatSystem\ChatSystem.cs" />
-    <Compile Include="Controller.cs" />
-    <Compile Include="Game.cs" />
+    <Compile Include="Prologue\Prologue.cs" />
+    <Compile Include="Prologue\Game.cs" />
+    <Compile Include="Prologue\Player.cs" />
     <Compile Include="Menu\GameMenu.cs" />
     <Compile Include="Map\Map.cs" />
     <Compile Include="Program.cs" />
@@ -71,6 +71,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="NPC\Bart.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="NPC\Prologue.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
